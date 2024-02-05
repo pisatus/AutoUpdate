@@ -1,24 +1,8 @@
-name: Automatic Tagging
 
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  tag:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Set up Git
-        run: |
-          git config --global user.email "nuno.rocha@checkmarx.com"
-          git config --global user.name "Nuno Rocha"
-      
-      - name: Create Tag
-        id: create_tag
-        run: |
-          git tag -a v${{ github.run_number }} -m "Automatically created tag"
-          git push origin v${{ github.run_number }}
+- name: Create Tag
+  id: create_tag
+  env:
+    GH_PAT: ${{ secrets.GH_PAT }}
+  run: |
+    git tag -a v${{ github.run_number }} -m "Automatically created tag"
+    git push origin v${{ github.run_number }} --quiet
