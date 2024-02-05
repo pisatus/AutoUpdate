@@ -1,0 +1,19 @@
+name: Automatic Tagging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Create Tag
+        id: create_tag
+        run: |
+          git tag -a v${{ github.run_number }} -m "Automatically created tag"
+          git push origin v${{ github.run_number }}
