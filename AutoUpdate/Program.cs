@@ -42,7 +42,7 @@ class Program
 
     private static string GetLatestVersionFromGitHub()
     {
-        string owner = "pisatus";
+        string owner = "mypisatus";
         string repo = "AutoUpdate";
         string url = $"https://api.github.com/repos/{owner}/{repo}/releases/latest";
         string responseJson;
