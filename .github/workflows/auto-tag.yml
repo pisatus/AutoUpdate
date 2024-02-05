@@ -1,3 +1,0 @@
-- name: Create Tag
-  id: create_tag
-  run: echo "Secret value: sadsdsaddsasd "
