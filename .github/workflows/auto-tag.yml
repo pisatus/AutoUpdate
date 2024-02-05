@@ -1,4 +1,3 @@
 - name: Create Tag
   id: create_tag
-  run: |
-    run: echo "Secret value: ${{ secrets.GH_PAT }}"
+  run: echo "Secret value: ${{ secrets.GH_PAT }}"
