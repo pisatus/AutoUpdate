@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "t/BeAI8Zgri9yhzSZpdLS3DNsFlUTyw4ECZ2Az96Z40srSMyOlxRtJb1OWsiiFd7hKFbxa6dlTc639TS2CSSgg==",
+  "success": true,
+  "projectFilePath": "C:\\repo\\Own\\CSharp\\AutoUpdate\\AutoUpdate\\AutoUpdate.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nunor\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
