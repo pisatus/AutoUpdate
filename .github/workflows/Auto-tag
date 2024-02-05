@@ -1,0 +1,24 @@
+name: Auto Tagging on Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  tag:
+    if: github.event.pull_request.merged && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+      
+      - name: Create Tag
+        run: |
+          git tag -a v${{ github.run_number }} -m "Automatically created tag"
+          git push origin v${{ github.run_number }}
