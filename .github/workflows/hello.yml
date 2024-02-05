@@ -11,7 +11,4 @@ jobs:
 
     steps:
     - name: Print Hello World
-      run: echo "Hello World"
-      
-    - name: Debug PAT
-      run: echo "Secret value: 123"
+      run: echo "Hello World"      
