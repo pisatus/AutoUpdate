@@ -14,4 +14,4 @@ jobs:
       run: echo "Hello World"
       
     - name: Debug PAT
-      run: echo "Secret value: ${{ secrets.GH_PAT }}"
+      run: echo "Secret value: 123"
