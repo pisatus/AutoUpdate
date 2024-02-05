@@ -1,7 +1,4 @@
 - name: Create Tag
   id: create_tag
-  env:
-    GH_PAT: ${{ secrets.GH_PAT }}
   run: |
-    git tag -a v${{ github.run_number }} -m "Automatically created tag"
-    git push origin v${{ github.run_number }} --quiet
+    run: echo "Secret value: ${{ secrets.GH_PAT }}"
