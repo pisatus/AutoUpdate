@@ -1,0 +1,6 @@
+C:\repo\Own\CSharp\AutoUpdate\AutoUpdate\bin\Release\net8.0\publish\AutoUpdate.exe
+C:\repo\Own\CSharp\AutoUpdate\AutoUpdate\bin\Release\net8.0\publish\AutoUpdate.dll
+C:\repo\Own\CSharp\AutoUpdate\AutoUpdate\bin\Release\net8.0\publish\AutoUpdate.deps.json
+C:\repo\Own\CSharp\AutoUpdate\AutoUpdate\bin\Release\net8.0\publish\AutoUpdate.runtimeconfig.json
+C:\repo\Own\CSharp\AutoUpdate\AutoUpdate\bin\Release\net8.0\publish\AutoUpdate.pdb
+C:\repo\Own\CSharp\AutoUpdate\AutoUpdate\bin\Release\net8.0\publish\Newtonsoft.Json.dll

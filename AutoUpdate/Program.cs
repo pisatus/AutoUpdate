@@ -23,6 +23,7 @@ class Program
         Console.WriteLine("Hello, Windows App!");
 
         string latestVersion = GetLatestVersionFromGitHub();
+        Console.WriteLine($"latestVersion {latestVersion}");
         Console.WriteLine("Finished.");
         // Pause the application until any key is pressed
         Console.ReadKey();
@@ -42,7 +43,7 @@ class Program
 
     private static string GetLatestVersionFromGitHub()
     {
-        string owner = "mypisatus";
+        string owner = "pisatus";
         string repo = "AutoUpdate";
         string url = $"https://api.github.com/repos/{owner}/{repo}/releases/latest";
         string responseJson;
