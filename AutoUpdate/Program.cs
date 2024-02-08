@@ -27,6 +27,8 @@ class Program
 
         string currentVersion = GetCurrentVersion();
         Console.WriteLine($"currentVersion {currentVersion}");
+        
+        CheckForUpdates();
 
         Console.WriteLine("Finished.");
         // Pause the application until any key is pressed
@@ -40,6 +42,7 @@ class Program
 
         if (latestVersion != currentVersion)
         {
+            Console.WriteLine("New version available.");
             DownloadAndReplaceExecutable();
             RestartApplication();
         }

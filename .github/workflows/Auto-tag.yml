@@ -28,7 +28,7 @@ jobs:
         run: |
           # Retrieve the list of commits in the PR
           PR_COMMITS=$(git log --oneline)  
-          echo "Commit messages read"   
+          echo "Commit messages read${{PR_COMMITS}}"   
 
       - name: Create Tag
         run: |
