@@ -33,6 +33,13 @@ jobs:
           echo "Incrementing major version."
           echo "::set-output name=version::major"
 
+      - name: Save state
+        run: echo "{name}={value}" >> $GITHUB_STATE
+
+      - name: Set output
+        run: echo "VERSION=1111" >> $GITHUB_OUTPUT
+
+
       - name: Create Tag
         run: |
           git tag -a v${{ github.run_number }} -m "Automatically created tag"
