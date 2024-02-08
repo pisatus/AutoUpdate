@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
 
       - name: Set up Git
         run: |
@@ -27,18 +27,12 @@ jobs:
         id: check_commit_messages
         run: |
           # Retrieve the list of commits in the PR
-          PR_COMMITS=$(git log --oneline)  
+          PR_COMMITS=$(git log --format=%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }})
+
           echo "Commit messages read $PR_COMMITS"   
           echo "Found commit messages containing 'feat' or 'fix'."
           echo "Incrementing major version."
           echo "::set-output name=version::major"
-
-      - name: Save state
-        run: echo "{name}={value}" >> $GITHUB_STATE
-
-      - name: Set output
-        run: echo "VERSION=1111" >> $GITHUB_OUTPUT
-
 
       - name: Create Tag
         run: |
