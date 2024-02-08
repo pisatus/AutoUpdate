@@ -27,7 +27,7 @@ jobs:
         id: check_commit_messages
         run: |
           # Retrieve the list of commits in the PR
-          PR_COMMITS=$(git log --format=%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }})
+          PR_COMMITS=$(git log --format=%s ${{ github.event.pull_request.base.sha }})
 
           echo "Commit messages read $PR_COMMITS"   
           echo "Found commit messages containing 'feat' or 'fix'."
