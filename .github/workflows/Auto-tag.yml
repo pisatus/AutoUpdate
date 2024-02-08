@@ -21,6 +21,14 @@ jobs:
       - name: List commits
         run: |
           git log --oneline
+          echo "Hello World"   
+
+      - name: Check Commit Messages
+        id: check_commit_messages
+        run: |
+          # Retrieve the list of commits in the PR
+          PR_COMMITS=$(git log --oneline)  
+          echo "Commit messages read"   
 
       - name: Create Tag
         run: |
