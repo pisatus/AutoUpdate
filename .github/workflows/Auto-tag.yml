@@ -24,28 +24,7 @@ jobs:
           # Retrieve the list of commits in the PR
           PR_COMMITS=$(git log --format=%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }})
 
-          # Check for commit types and determine version increment
-          if echo "$PR_COMMITS" | grep -q -E "(^feat:|^fix:)"; then
-            echo "Found commit messages containing 'feat' or 'fix'. Incrementing major version."
-            echo "::set-output name=version::major"
-          elif echo "$PR_COMMITS" | grep -q -E "(^docs:|^chore:)"; then
-            echo "Found commit messages containing 'docs' or 'chore'. Incrementing minor version."
-            echo "::set-output name=version::minor"
-          else
-            echo "No relevant commit messages found. No version increment required."
-            echo "::set-output name=version::none"
-          fi
-
       - name: Create Tag
-        if: steps.check_commit_messages.outputs.version != 'none'
         run: |
-          # Increment version based on the output from the previous step
-          if [ "${{ steps.check_commit_messages.outputs.version }}" == "major" ]; then
-            NEW_VERSION="v$(($(git describe --tags --abbrev=0 | tr -dc '0-9')+1)).0.0"
-          else
-            NEW_VERSION="v$(($(git describe --tags --abbrev=0 | cut -d. -f1)+1)).$(($(git describe --tags --abbrev=0 | cut -d. -f2)+1)).0"
-          fi
-
-          echo "Creating tag $NEW_VERSION"
-          git tag -a $NEW_VERSION -m "Automatically created tag"
-          git push origin $NEW_VERSION
+          git tag -a v${{ github.run_number }} -m "Automatically created tag"
+          git push origin v${{ github.run_number }}
