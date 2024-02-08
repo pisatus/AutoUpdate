@@ -24,6 +24,10 @@ class Program
 
         string latestVersion = GetLatestVersionFromGitHub();
         Console.WriteLine($"latestVersion {latestVersion}");
+
+        string currentVersion = GetCurrentVersion();
+        Console.WriteLine($"currentVersion {currentVersion}");
+
         Console.WriteLine("Finished.");
         // Pause the application until any key is pressed
         Console.ReadKey();
