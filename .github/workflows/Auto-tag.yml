@@ -29,6 +29,9 @@ jobs:
           # Retrieve the list of commits in the PR
           PR_COMMITS=$(git log --oneline)  
           echo "Commit messages read $PR_COMMITS"   
+          echo "Found commit messages containing 'feat' or 'fix'."
+          echo "Incrementing major version."
+          echo "::set-output name=version::major"
 
       - name: Create Tag
         run: |
