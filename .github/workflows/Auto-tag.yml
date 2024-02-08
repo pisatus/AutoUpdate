@@ -22,7 +22,8 @@ jobs:
 
       - name: Print head git commit message
         run: |
-          echo "$(git show -s --format=%s)" 
+          PR_COMMITS = $(git show -s --format=%s)
+          echo "Commit messages read $PR_COMMITS" 
           
       - name: List commits
         run: |
