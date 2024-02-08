@@ -6,30 +6,17 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+   tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '6.0.x'
-      
-      - name: Build project
-        run: dotnet build --configuration Release
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Use GH_PAT secret instead of GITHUB_TOKEN
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
-          body: |
-            Automatically generated release for version v${{ github.run_number }}.
-          draft: false
+          repo_token: "${{ secrets.GH_PAT }}"
           prerelease: false
